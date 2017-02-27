@@ -85,3 +85,20 @@ describe("A Conjured Item's", function() {
     });
   });
 });
+
+
+describe("Sulfuras's", function() {
+  var item_name = 'Sulfuras';
+
+  describe("quality", function() {
+    it("does not decrease", function() {
+      var initial_quality = 10;
+      var new_sulfuras = new Item(item_name, 10, initial_quality);
+      items = [new_sulfuras];
+
+      update_quality();
+
+      expect(new_sulfuras.quality).toEqual(initial_quality);
+    });
+  });
+});

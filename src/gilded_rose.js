@@ -28,7 +28,7 @@ function update_quality() {
 
     if (item_name != 'Aged Brie' && item_name != 'Backstage passes to a TAFKAL80ETC concert') {
       if (items[i].quality > 0) {
-        if (item_name != 'Sulfuras, Hand of Ragnaros') {
+        if (!item_name.startsWith('Sulfuras')) {
           items[i].quality = items[i].quality - 1
         }
       }
@@ -49,14 +49,14 @@ function update_quality() {
         }
       }
     }
-    if (item_name != 'Sulfuras, Hand of Ragnaros') {
+    if (!item_name.startsWith('Sulfuras')) {
       items[i].sell_in = items[i].sell_in - 1;
     }
     if (items[i].sell_in < 0) {
       if (item_name != 'Aged Brie') {
         if (item_name != 'Backstage passes to a TAFKAL80ETC concert') {
           if (items[i].quality > 0) {
-            if (item_name != 'Sulfuras, Hand of Ragnaros') {
+            if (!item_name.startsWith('Sulfuras')) {
               items[i].quality = items[i].quality - 1
             }
           }
