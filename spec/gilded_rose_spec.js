@@ -32,3 +32,56 @@ describe("An Aged Brie's", function() {
     });
   });
 });
+
+describe("A Conjured Item's", function() {
+  var item_name = "Conjured";
+
+  describe("quality", function() {
+    it("should decrease by 2 every day", function() {
+      var initial_quality = 10;
+
+      var new_conjured = new Item(item_name, 10, initial_quality);
+      items = [new_conjured];
+
+      update_quality();
+
+      expect(new_conjured.quality).toEqual(10 -2);
+    });
+
+    it("should not go negative", function() {
+      var initial_quality = 0;
+      var past_sell_in = -1;
+
+      var new_conjured = new Item(item_name, past_sell_in, initial_quality);
+      items = [new_conjured];
+
+      update_quality();
+
+      expect(new_conjured.quality).toEqual(initial_quality);
+    });
+  });
+
+  describe("sell_in", function() {
+    it("should decrease by 1 when positive", function() {
+      var initial_sell_in = 1;
+
+      var new_conjured = new Item(item_name, initial_sell_in, 10);
+      items = [new_conjured];
+
+      update_quality();
+
+      expect(new_conjured.sell_in).toEqual(initial_sell_in - 1);
+    });
+
+    it("should decrease by 1 when negative", function() {
+      var initial_sell_in = -1;
+
+      var new_conjured = new Item(item_name, initial_sell_in, 10);
+      items = [new_conjured];
+
+      update_quality();
+
+      expect(new_conjured.sell_in).toEqual(initial_sell_in - 1);
+    });
+  });
+});
